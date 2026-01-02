@@ -202,6 +202,7 @@ function startQuiz(){
 }
 
 function showScene(){
+    document.body.scrollTo(0,0);
     const s = scenes[currentScene];
     if(s.type === "dialogue"){
         showDialogue();
@@ -318,3 +319,4 @@ returnBtn.onclick = () =>{
 
 //start on page load
 startQuiz();
+
