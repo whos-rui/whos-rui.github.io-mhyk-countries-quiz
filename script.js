@@ -1,10 +1,10 @@
-//Comment format
+//HAHA have fun looking at my shitty code i did this in like a week with hella tutorials
 
 // Scenes (dialogue + questions)
 let scenes = [
     {
         type: "dialogue",
-        text: "Welcome to the MHYK country quiz!!\nPlaceholder text",
+        text: "Welcome to the MHYK country quiz!!\n\nJust a silly quiz to see which country you'd be from if you were in the MHYK universe :)",
         buttonText: "Next"
     },
     {
@@ -14,7 +14,7 @@ let scenes = [
     },
     {
         type: "dialogue",
-        text: "Are you ready to start? :)",
+        text: "Are you ready to start? >:D",
         description: "",
         buttonText: "Let's go!!"
     },
@@ -67,7 +67,7 @@ let scenes = [
         answers: [
             { text: "Yes! I think we can work out our differences and surely we'll be able to live together comfortably!", country: "southern" },
             { text: "No. We're just not cut from the same cloth. It's like asking if a bear and a wolf could live together without being wary of each other. It just doesn't seem possible", country: "eastern" },
-            { text: "No way. The laws of nature simply don't work that way. It's always been the strong reign supreme while the weak cower in fear", country: "sorthern" },
+            { text: "No way. The laws of nature simply don't work that way", country: "northern" },
             { text: "I would definitely like to see it happen! Maybe not right now, but in 50, 100 years, I can see us living together in peace", country: "central" },
             { text: "Only time can tell, and I'd like to be around to witness all that transpires from here on out", country: "western" }
         ],
@@ -101,8 +101,8 @@ let scenes = [
             { text: "I love it! Art is so pretty to look at and I just can't get enough of it!", country: "southern" },
             { text: "Art is my everything. Sometimes it infuriates me to no end, and other times it is my beacon of hope. I could never give it up", country: "western" },
             { text: "Personally, I'm not very good at art, but I really look up to the people who are able to create such wonderful pieces!", country: "central" },
-            { text: "Art? There is no place for art in my mind. Any time spent looking at art is time I could spend doing something more productive", country: "northern" },
-            { text: "Observing art is much like observing oneself. With time, you'll start to notice even the finest of details that you had overlooked in the beginning", country: "eastern" }
+            { text: "It's cool if it's pretty but otherwise I don't dwell on the subject for too long. I guess I just don't think too much about it", country: "northern" },
+            { text: "Creating and observing art is not for the weak. In a sense, it is a type of much-needed introspection", country: "eastern" }
         ],
         weight: 8
     },
@@ -143,7 +143,7 @@ let scenes = [
         text: "Since the mission is over, it's time to let loose and relax! \nWhat do you do in your free time?", 
         answers: [
             { text: "I like to read. It quiets my mind and lets me temporarily forget all that is troubling me", country: "eastern" },
-            { text: "I like working out. I'm just always on that grind", country: "northern" },
+            { text: "I like working out. I'm just always on that grind", country: "sorthern" },
             { text: "I like doing something that excites me, like playing games or going out for drinks or even watching a horror movie with friends!", country: "western" },
             { text: "I like to grab a cup of tea, curl up on the couch and catch up with my friends!", country: "southern" },
             { text: "I like to plan out my next day. Doing so gives me a sense of assurance", country: "central" }
@@ -173,17 +173,30 @@ let currentScene = 0;
 let scores = { central: 0, northern: 0, eastern: 0, western: 0, southern: 0};
 let multiplier = 0.99;
 
+//Webpage elements
 const resultEl = document.getElementById("result");
 const scenesEl = document.getElementById("scenes");
 const answersEl = document.getElementById("answers");
 const quizContainer = document.getElementById("quiz");
 const resultImgEl = document.getElementById("resultImg");
-const retakeBtn = document.getElementById("retakeBtn")
+const downloadGuideEl = document.getElementById("downloadGuide");
 const countriesBtn = document.getElementById("countriesBtn");
+const returnBtn = document.getElementById("returnBtn");
+const retakeBtn = document.getElementById("retakeBtn");
 
+//Countries images
+const centralImgEl = document.getElementById("centralImg");
+const northernImgEl = document.getElementById("northernImg");
+const easternImgEl = document.getElementById("easternImg");
+const westernImgEl = document.getElementById("westernImg");
+const southernImgEl = document.getElementById("southernImg");
+
+
+//Functions
 function startQuiz(){
-    retakeBtn.classList.add("hidden");
     countriesBtn.classList.add("hidden");
+    returnBtn.classList.add("hidden");
+    retakeBtn.classList.add("hidden");
     showScene();
     
 }
@@ -245,7 +258,7 @@ function showQuestion(){
 
 function showResult(){
     let maxKey = null;
-    let maxValue = 0; // Initialize with negative infinity to ensure any value is larger
+    let maxValue = 0; 
 
     for (const [key, value] of Object.entries(scores)) {
         if (value > maxValue) {
@@ -254,10 +267,11 @@ function showResult(){
         } 
     }
     displayResult(maxKey);
+    downloadGuideEl.hidden = false;
 }
 
+
 function displayResult(country){
-    //TODO: DONT FORGET TO CHANGE THIS LATER THIS IS NOT RIGHT
     quizContainer.hidden = true;
     resultEl.textContent = 'You got:';
     let link = "images/"+country + "-info.png";
@@ -279,27 +293,45 @@ retakeBtn.onclick = () => {
     resultEl.classList.add("hidden");
     retakeBtn.classList.add("hidden");
     countriesBtn.classList.add("hidden");
+    centralImgEl.classList.add("hidden");
+    northernImgEl.classList.add("hidden");
+    easternImgEl.classList.add("hidden");
+    westernImgEl.classList.add("hidden");
+    southernImgEl.classList.add("hidden");
     quizContainer.hidden = false;
+    downloadGuideEl.hidden = true;
     startQuiz();
 }
 
 countriesBtn.onclick = () => {
-    //TODO: IMPLEMENT THIS LATER
-    currentScene = 0;
-    Object.values(scores).forEach(value => {
-    value = 0;
-    });
-    resultEl.textContent = '';
-    resultEl.classList.add("hidden");
-    retakeBtn.classList.add("hidden");
+    resultImgEl.classList.add("hidden");
+    resultEl.textContent = 'All countries:';
     countriesBtn.classList.add("hidden");
-    quizContainer.hidden = false;
-    startQuiz();
+
+    returnBtn.classList.remove("hidden");
+
+    centralImgEl.classList.remove("hidden");
+    northernImgEl.classList.remove("hidden");
+    easternImgEl.classList.remove("hidden");
+    westernImgEl.classList.remove("hidden");
+    southernImgEl.classList.remove("hidden");
+    document.body.scrollTo(0,0);
+}
+
+returnBtn.onclick = () =>{
+    resultImgEl.classList.remove("hidden");
+    resultEl.textContent = 'You got:';
+    countriesBtn.classList.remove("hidden");
+
+    returnBtn.classList.add("hidden");
+
+    centralImgEl.classList.add("hidden");
+    northernImgEl.classList.add("hidden");
+    easternImgEl.classList.add("hidden");
+    westernImgEl.classList.add("hidden");
+    southernImgEl.classList.add("hidden");
+    document.body.scrollTo(0,0);
 }
 
 //start on page load
 startQuiz();
-
-
-
-
