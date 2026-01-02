@@ -60,14 +60,32 @@ div{
     border: 3px solid rgb(54, 30, 6);
 }
 
-@media screen and (max-width: 600px){
+@media (min-width: 1025px) and (max-width: 1400px) {
+    img{
+        width: clamp(480px, 100%, 600px);
+    }
 }
 
-#resultImg{
-    width: 100%;
-    max-width: 600px;
-    min-width: 480px;
+@media (min-width: 769px) and (max-width: 1024px) {
+    img{
+        width: clamp(480px, 100%, 600px);
+    }
 }
+
+@media (max-width: 768px) {
+    img{
+        width: clamp(300px, 80%, 600px);
+    }
+}
+
+img{
+    padding: 5px 0px;
+}
+
+p{
+    padding-bottom: 50px;
+}
+
 
 #result{
     padding: 10px 10px;
@@ -104,7 +122,7 @@ footer {
     margin-top: auto;
     bottom: 0;
     text-align: center;
-    padding: 10px 0 30px 0;
+    padding: 30px 0 30px 0;
     color: rgb(54, 30, 6);
     
 }
