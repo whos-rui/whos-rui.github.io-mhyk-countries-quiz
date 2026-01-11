@@ -14,7 +14,7 @@ let scenes = [
     },
     {
         type: "dialogue",
-        text: "Are you ready to start? >:D",
+        text: "There are 13 questions in total. \nAre you ready to start? >:D",
         description: "",
         buttonText: "Let's go!!"
     },
@@ -319,4 +319,5 @@ returnBtn.onclick = () =>{
 
 //start on page load
 startQuiz();
+
 
