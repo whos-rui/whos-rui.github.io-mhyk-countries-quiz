@@ -143,7 +143,7 @@ let scenes = [
         text: "Since the mission is over, it's time to let loose and relax! \nWhat do you do in your free time?", 
         answers: [
             { text: "I like to read. It quiets my mind and lets me temporarily forget all that is troubling me", country: "eastern" },
-            { text: "I like working out. I'm just always on that grind", country: "sorthern" },
+            { text: "I like working out. I'm just always on that grind", country: "northern" },
             { text: "I like doing something that excites me, like playing games or going out for drinks or even watching a horror movie with friends!", country: "western" },
             { text: "I like to grab a cup of tea, curl up on the couch and catch up with my friends!", country: "southern" },
             { text: "I like to plan out my next day. Doing so gives me a sense of assurance", country: "central" }
@@ -319,5 +319,6 @@ returnBtn.onclick = () =>{
 
 //start on page load
 startQuiz();
+
 
 
