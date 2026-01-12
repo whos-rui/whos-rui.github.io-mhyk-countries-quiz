@@ -151,13 +151,13 @@ let scenes = [
         weight: 6
     },
     {   type: "question", 
-        text: "Finally, the moon has fully risen and it's time to head back to your sweet, sweet bed! You close your eyes and quickly find yourself deep within the embrace of slumber. \nWhat do you dream of?", 
+        text: "Finally, the moon has fully risen and it's time to head back to your sweet, sweet bed! As you're being lulled within the deep embrace of slumber, you find yourself dreaming of the future you've built for yourself. \nWhat is this future you dream of?", 
         answers: [
-            { text: "I dream of all sorts of strange and fantastical things! I wonder where my dream will take me next...", country: "western" },
-            { text: "I dream of my future", country: "central" },
+            { text: "I dream of being on an exciting adventure experiencing all sorts of weird and wonderful things. I wonder where my adventure will take me next…", country: "western" },
+            { text: "I dream of myself in a world where no one is afraid of being themselves", country: "central" },
             { text: "I dream that I am surrounded by all my loved ones", country: "southern" },
-            { text: "I dream of my past", country: "eastern" },
-            { text: "I hardly ever dream, but when I do it's usually about me obtaining everything that I desire", country: "northern" }
+            { text: "I dream that I am finally at peace with myself, free from the shackles of my past", country: "eastern" },
+            { text: "I dream that I've obtained everything I desire", country: "northern" }
         ],
         weight: 10
     },
@@ -319,6 +319,7 @@ returnBtn.onclick = () =>{
 
 //start on page load
 startQuiz();
+
 
 
 
