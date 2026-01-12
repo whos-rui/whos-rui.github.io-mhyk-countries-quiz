@@ -34,7 +34,7 @@ let scenes = [
         answers: [
             { text: "I use my power to help people and serve justice", country: "central" },
             { text: "I use my power to protect the weak and heal the injured", country: "southern" },
-            { text: "I use my power as I please. After all, magic comes from the heart", country: "western" },
+            { text: "I use my power as I please. After all, magic comes from the heart, and my heart is telling me to play a fun, harmless prank", country: "western" },
             { text: "I use my power for no one else but myself", country: "northern" },
             { text: "I use my power as needed, whether it be to curse or to purify", country: "eastern" }
         ],
@@ -69,7 +69,7 @@ let scenes = [
             { text: "No. We're just not cut from the same cloth. It's like asking if a bear and a wolf could live together without being wary of each other. It just doesn't seem possible", country: "eastern" },
             { text: "No way. The laws of nature simply don't work that way", country: "northern" },
             { text: "I would definitely like to see it happen! Maybe not right now, but in 50, 100 years, I can see us living together in peace", country: "central" },
-            { text: "Only time can tell, and I'd like to be around to witness all that transpires from here on out", country: "western" }
+            { text: "It's hard to say when humans have such hostile attitudes towards wizards, but only time will tell", country: "western" }
         ],
         weight: 1
     },
@@ -319,6 +319,7 @@ returnBtn.onclick = () =>{
 
 //start on page load
 startQuiz();
+
 
 
 
